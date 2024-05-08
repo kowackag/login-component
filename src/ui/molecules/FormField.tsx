@@ -3,12 +3,13 @@ import { Path, UseFormRegister } from "react-hook-form";
 interface IFormValues {
 	email: string;
 	password: number;
+	saved: boolean;
 }
 type FormFieldTypes = {
 	name: Path<IFormValues>;
 	label: string;
-	type?: "text" | "password";
-	register: UseFormRegister<{ email: string; password: string }>;
+	type?: "text" | "password" | "email";
+	register: UseFormRegister<{ email: string; password: string; saved: boolean }>;
 	error: string | undefined;
 };
 

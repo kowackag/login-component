@@ -7,11 +7,12 @@ import { ConfirmButton } from "@ui/atoms/ConfirmButton";
 import { FormDataType } from "@/utils/shared.types";
 import { FormField } from "@ui/molecules/FormField";
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
 	const {
 		register,
 		formState: { errors },
 		handleSubmit,
+		reset,
 	} = useForm<Zod.output<typeof schema>>({
 		resolver: zodResolver(schema),
 		defaultValues: {
@@ -20,17 +21,13 @@ export const LoginForm = () => {
 			saved: false,
 		},
 	});
-	const onSubmit = (data: FormDataType) => console.log(data);
+	const onSubmit = (data: FormDataType) => {
+		console.log(data);
+		reset();
+	};
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
-			{/* CredentialsFields */}
-			<FormField
-				name="email"
-				label="Email"
-				// type="email"
-				register={register}
-				error={errors.email?.message}
-			/>
+			<FormField name="email" label="Email" register={register} error={errors.email?.message} />
 			<FormField
 				name="password"
 				label="Password"
@@ -38,20 +35,7 @@ export const LoginForm = () => {
 				register={register}
 				error={errors.password?.message}
 			/>
-			<div className="justify-beetwen mb-4 flex align-middle">
-				<input
-					{...register("saved")}
-					type="checkbox"
-					id="saved"
-					name="saved"
-					className="peer fixed opacity-0"
-				/>
-				<p className="peer-checked:bg-bright-rose mr-3 inline-block h-5 w-5 rounded-md border border-gray-300 leading-5"></p>
-				<label htmlFor="save-credentials" className="font-semibold leading-4">
-					Remember me?
-				</label>
-			</div>
-			<ConfirmButton>Login</ConfirmButton>
+			<ConfirmButton>Sign up</ConfirmButton>
 		</form>
 	);
 };
