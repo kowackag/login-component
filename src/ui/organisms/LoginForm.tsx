@@ -6,6 +6,7 @@ import { ConfirmButton } from "@ui/atoms/ConfirmButton";
 
 import { FormDataType } from "@/utils/shared.types";
 import { FormField } from "@ui/molecules/FormField";
+import { Checkbox } from "../molecules/Checkbox";
 
 export const LoginForm = () => {
 	const {
@@ -38,19 +39,7 @@ export const LoginForm = () => {
 				register={register}
 				error={errors.password?.message}
 			/>
-			<div className="justify-beetwen mb-4 flex align-middle">
-				<input
-					{...register("saved")}
-					type="checkbox"
-					id="saved"
-					name="saved"
-					className="peer fixed opacity-0"
-				/>
-				<p className="peer-checked:bg-bright-rose mr-3 inline-block h-5 w-5 rounded-md border border-gray-300 leading-5"></p>
-				<label htmlFor="save-credentials" className="font-semibold leading-4">
-					Remember me?
-				</label>
-			</div>
+			<Checkbox name="saved" label="Remember me?" register={register} />
 			<ConfirmButton>Login</ConfirmButton>
 		</form>
 	);
