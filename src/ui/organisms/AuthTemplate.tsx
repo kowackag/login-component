@@ -1,20 +1,26 @@
-import { Title } from "@ui/atoms/Title";
 import { ReactNode } from "react";
-import { SwitchLoginSignup } from "@ui/atoms/SwitchLoginSignup";
-import { SocialIconBox } from "@ui/molecules/SocialIconBox";
 import { Link } from "react-router-dom";
+
+import { SocialIconBox } from "@ui/molecules/SocialIconBox";
+import { Title } from "@ui/atoms/Title";
+import { SwitchLoginSignup } from "@ui/atoms/SwitchLoginSignup";
+import { HorizontalLine } from "@ui/atoms/HorizontalLine";
 
 export const AuthTemplate = ({ id, children }: { id: string; children: ReactNode }) => {
 	return (
 		<div>
 			<Title>{id === "login" ? "Login" : "Sign up"}</Title>
 			{children}
+			{id === "login" && (
+				<Link className="block text-end font-semibold" to="/">
+					Forgot password?
+				</Link>
+			)}
 			<div className="my-4 flex items-center">
-				<span className="flex-grow border border-b border-b-gray-300"></span>
+				<HorizontalLine />
 				<p className="rounded border border-gray-300 px-1 uppercase text-gray-300">or</p>
-				<span className="flex-grow border border-b border-b-gray-300"></span>
+				<HorizontalLine />
 			</div>
-            {id === "login" ?? <Link to="/">Forgot password</Link>}
 			<SocialIconBox />
 			<SwitchLoginSignup id={id} />
 		</div>
