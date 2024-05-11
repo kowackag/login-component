@@ -2,6 +2,10 @@
 export default {
 	content: ["src/pages/**/*.{js,ts,jsx,tsx}", "src/components/**/*.{js,ts,jsx,tsx}"],
 	theme: {
+		fontFamily: {
+			primaryRegular: ["Regular", "Arial"],
+			primaryMedium: ["Medium", "Arial"],
+		},
 		extend: {
 			colors: {
 				"navy-blue": "#5F9CC8",

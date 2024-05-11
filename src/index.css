@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	@font-face {
+		font-family: "Regular";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("./assets/fonts/roboto-regular-webfont.woff2") format("woff2");
+	}
+	@font-face {
+		font-family: "Medium";
+		font-style: normal;
+		font-weight: 500;
+		src: url("./assets/fonts/roboto-medium-webfont.woff2") format("woff2");
+	}
+	@font-face {
+		font-family: "Bold";
+		font-style: normal;
+		font-weight: 600;
+		src: url("./assets/fonts/roboto-bold-webfont.woff2") format("woff2");
+	}
+}
 body {
 	color: #5f5f5f;
 	margin: 0;

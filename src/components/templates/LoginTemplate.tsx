@@ -16,7 +16,7 @@ export const LoginTemplate = ({ children }: { children: ReactNode }) => {
 			</Link>
 			<div className="my-4 flex items-center">
 				<HorizontalLine />
-				<p className="rounded border border-gray-300 px-1 uppercase text-gray-300">or</p>
+				<p className="rounded border-2 border-neutral-300 px-1 uppercase text-neutral-300 font-semibold">or</p>
 				<HorizontalLine />
 			</div>
 			<SocialIconBox />

@@ -15,17 +15,19 @@ type FormFieldTypes = {
 
 export const FormField = ({ name, label, type, register, error }: FormFieldTypes) => {
 	return (
-		<div className="relative pb-6">
-			<label className="font-semibold" htmlFor={name}>
+		<div className="relative py-3">
+			<label className="font-primaryMedium inline-block" htmlFor={name}>
 				{label}
 			</label>
 			<input
 				id={name}
 				type={type}
 				{...register(name)}
-				className="w-full rounded-lg border border-gray-300 bg-transparent px-2 leading-10 outline-none"
+				className="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
 			/>
-			{error ? <p className="absolute text-xs font-semibold italic text-red-600">{error}</p> : null}
+			{error ? (
+				<p className="font-primaryMedium absolute right-0 text-xs italic text-red-600">{error}</p>
+			) : null}
 		</div>
 	);
 };

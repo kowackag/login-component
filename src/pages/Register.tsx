@@ -4,7 +4,7 @@ import { RegisterForm } from "@/components/organisms/RegisterForm";
 
 function Register() {
 	return (
-		<div className="right-0 flex min-h-screen w-full bg-navy-blue">
+		<div className="right-0 flex min-h-screen w-full font-body bg-navy-blue">
 			<AuthWrapper>
 				<RegisterTemplate>
 					<RegisterForm />
