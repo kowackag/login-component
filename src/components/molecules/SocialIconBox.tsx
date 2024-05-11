@@ -1,4 +1,4 @@
-import { IconLink } from "@ui/atoms/IconLink";
+import { IconLink } from "@/components/atoms/IconLink";
 
 export const SocialIconBox = () => {
 	return (

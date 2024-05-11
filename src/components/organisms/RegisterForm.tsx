@@ -1,14 +1,13 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { schema } from "@/views/authSchema";
-import { ConfirmButton } from "@ui/atoms/ConfirmButton";
+import { schema } from "@/pages/authSchema";
+import { ConfirmButton } from "@/components/atoms/ConfirmButton";
 
 import { FormDataType } from "@/utils/shared.types";
-import { FormField } from "@ui/molecules/FormField";
-import { Checkbox } from "../molecules/Checkbox";
+import { FormField } from "@/components/molecules/FormField";
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
 	const {
 		register,
 		formState: { errors },
@@ -22,16 +21,10 @@ export const LoginForm = () => {
 		},
 	});
 	const onSubmit = (data: FormDataType) => console.log(data);
+
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
-			{/* CredentialsFields */}
-			<FormField
-				name="email"
-				label="Email"
-				// type="email"
-				register={register}
-				error={errors.email?.message}
-			/>
+			<FormField name="email" label="Email" register={register} error={errors.email?.message} />
 			<FormField
 				name="password"
 				label="Password"
@@ -39,8 +32,7 @@ export const LoginForm = () => {
 				register={register}
 				error={errors.password?.message}
 			/>
-			<Checkbox name="saved" label="Remember me?" register={register} />
-			<ConfirmButton>Login</ConfirmButton>
+			<ConfirmButton>Sign up</ConfirmButton>
 		</form>
 	);
 };

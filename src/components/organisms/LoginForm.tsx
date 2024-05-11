@@ -1,18 +1,18 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { schema } from "@/views/authSchema";
-import { ConfirmButton } from "@ui/atoms/ConfirmButton";
+import { schema } from "@/pages/authSchema";
+import { ConfirmButton } from "@/components/atoms/ConfirmButton";
 
 import { FormDataType } from "@/utils/shared.types";
-import { FormField } from "@ui/molecules/FormField";
+import { FormField } from "@/components/molecules/FormField";
+import { Checkbox } from "../molecules/Checkbox";
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
 	const {
 		register,
 		formState: { errors },
 		handleSubmit,
-		reset,
 	} = useForm<Zod.output<typeof schema>>({
 		resolver: zodResolver(schema),
 		defaultValues: {
@@ -21,10 +21,7 @@ export const RegisterForm = () => {
 			saved: false,
 		},
 	});
-	const onSubmit = (data: FormDataType) => {
-		console.log(data);
-		reset();
-	};
+	const onSubmit = (data: FormDataType) => console.log(data);
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<FormField name="email" label="Email" register={register} error={errors.email?.message} />
@@ -35,7 +32,8 @@ export const RegisterForm = () => {
 				register={register}
 				error={errors.password?.message}
 			/>
-			<ConfirmButton>Sign up</ConfirmButton>
+			<Checkbox name="saved" label="Remember me?" register={register} />
+			<ConfirmButton>Login</ConfirmButton>
 		</form>
 	);
 };
