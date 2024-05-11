@@ -13,7 +13,7 @@ type FormFieldTypes = {
 	error: string | undefined;
 };
 
-export const FormField = ({ name, label, type, register, error }: FormFieldTypes) => {
+export const InputField = ({ name, label, type, register, error }: FormFieldTypes) => {
 	return (
 		<div className="relative py-3">
 			<label className="font-primaryMedium inline-block" htmlFor={name}>

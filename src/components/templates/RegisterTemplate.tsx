@@ -10,9 +10,11 @@ export const RegisterTemplate = ({ children }: { children: ReactNode }) => {
 		<>
 			<Title>Sign up</Title>
 			{children}
-			<div className="my-4 flex items-center">
+			<div className="my-3 flex items-center">
 				<HorizontalLine />
-				<p className="rounded border border-gray-300 px-1 uppercase text-gray-300">or</p>
+				<p className="font-primaryRegular py-0.5  rounded-md border-2 border-neutral-300 px-1 uppercase text-neutral-400">
+					or
+				</p>
 				<HorizontalLine />
 			</div>
 			<SocialIconBox />

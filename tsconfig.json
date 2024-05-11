@@ -18,7 +18,7 @@
 		"baseUrl": "src",
 		"paths": {
 			"@/*": ["*"],
-			"@ui/*": ["ui/*"]
+			"@components/*": ["components/*"]
 		},
 		/* Linting */
 		"strict": true,

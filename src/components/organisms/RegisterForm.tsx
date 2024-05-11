@@ -5,7 +5,7 @@ import { schema } from "@/pages/authSchema";
 import { ConfirmButton } from "@/components/atoms/ConfirmButton";
 
 import { FormDataType } from "@/utils/shared.types";
-import { FormField } from "@/components/molecules/FormField";
+import { InputField } from "@/components/molecules/InputField";
 
 export const RegisterForm = () => {
 	const {
@@ -24,8 +24,8 @@ export const RegisterForm = () => {
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
-			<FormField name="email" label="Email" register={register} error={errors.email?.message} />
-			<FormField
+			<InputField name="email" label="Email" register={register} error={errors.email?.message} />
+			<InputField
 				name="password"
 				label="Password"
 				type="password"

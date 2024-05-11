@@ -13,6 +13,10 @@ export default {
 			},
 			boxShadow: {
 				"md-2": "0 4px 2px -1px rgb(0 0 0 / 0.15), 2px 0px 2px 2px rgb(0 0 0 / 0.1)",
+				btn: "0 2px 5px 0 rgba(0, 0, 0, .5);",
+			},
+			letterSpacing: {
+				widest: ".125em",
 			},
 		},
 	},

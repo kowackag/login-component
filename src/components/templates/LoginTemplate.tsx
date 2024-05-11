@@ -11,12 +11,14 @@ export const LoginTemplate = ({ children }: { children: ReactNode }) => {
 		<div>
 			<Title>Login</Title>
 			{children}
-			<Link className="block text-end font-semibold" to="/">
+			<Link className="font-primaryRegular block text-end text-neutral-400" to="/">
 				Forgot password?
 			</Link>
-			<div className="my-4 flex items-center">
+			<div className="my-3 flex items-center">
 				<HorizontalLine />
-				<p className="rounded border-2 border-neutral-300 px-1 uppercase text-neutral-300 font-semibold">or</p>
+				<p className="font-primaryRegular leading-2 rounded border-2 border-neutral-300 px-1 uppercase text-neutral-400">
+					or
+				</p>
 				<HorizontalLine />
 			</div>
 			<SocialIconBox />

@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 export const ConfirmButton = ({ children, ...props }: { children: ReactNode }) => {
 	return (
 		<button
-			className="bg-bright-rose w-full rounded-lg text-center text-sm font-semibold uppercase leading-10 tracking-wide text-gray-100 shadow-lg"
+			className="font-primaryMedium my-2 w-full rounded-lg bg-bright-rose text-center text-sm uppercase leading-10 tracking-widest text-neutral-100 shadow-btn"
 			type="submit"
 			{...props}
 		>
