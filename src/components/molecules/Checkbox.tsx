@@ -9,7 +9,7 @@ type FormFieldTypes = {
 	name: Path<IFormValues>;
 	label: string;
 	type?: HTMLInputElement;
-	register: UseFormRegister<{ email: string; password: string; saved: boolean }>;
+	register: UseFormRegister<FormFieldTypes>;
 };
 
 export const Checkbox = ({ name, label, register }: FormFieldTypes) => {

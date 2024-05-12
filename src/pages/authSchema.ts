@@ -5,3 +5,8 @@ export const schema = z.object({
 	password: z.string().trim().min(8, { message: "Invalid password" }),
 	saved: z.boolean(),
 });
+
+export const registerShema = z.object({
+	email: z.string().trim().email({ message: "Invalid email address" }),
+	password: z.string().trim().min(8, { message: "Invalid password" }),
+});

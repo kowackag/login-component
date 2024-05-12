@@ -6,7 +6,7 @@ import { Title } from "@/components/atoms/Title";
 import { SwitchLoginSignup } from "@/components/atoms/SwitchLoginSignup";
 import { HorizontalLine } from "@/components/atoms/HorizontalLine";
 
-export const LoginTemplate = ({ children }: { children: ReactNode }) => {
+export const LoginTemplate = ({ children,  }: { children: ReactNode }) => {
 	return (
 		<div>
 			<Title>Login</Title>
