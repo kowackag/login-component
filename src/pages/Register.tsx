@@ -10,6 +10,7 @@ export type RegisterFieldsTypes = {
 	email: string;
 	password: string;
 };
+
 export type RegisterFormType = {
 	onSubmit: React.FormEventHandler;
 	errors?: FieldErrors<RegisterFieldsTypes>;

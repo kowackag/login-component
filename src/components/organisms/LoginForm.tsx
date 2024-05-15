@@ -1,28 +1,27 @@
 import { ConfirmButton } from "@/components/atoms/ConfirmButton";
-
-import { InputField } from "@/components/molecules/InputField";
-import { Checkbox } from "@/components/molecules/Checkbox";
+// import { Checkbox } from "@/components/molecules/Checkbox";
 import { LoginFormType } from "@/pages/Login";
+import { FormInput } from "../molecules/FormInput";
 
 export const LoginForm = ({ onSubmit, errors, register }: LoginFormType) => {
 	return (
 		<form onSubmit={onSubmit}>
-			<InputField
+			<FormInput
+				id="email"
 				name="email"
 				label="Email"
 				register={register}
 				error={errors?.email?.message}
-				// handleInput={handleEmail}
 			/>
-			<InputField
+			<FormInput
+				id="password"
 				name="password"
 				label="Password"
-				type="password"
 				register={register}
+				type="password"
 				error={errors?.password?.message}
-				// handleInput={handlePassword}
 			/>
-			<Checkbox name="saved" label="Remember me?" register={register} />
+			{/* <Checkbox name="saved" label="Remember me?" register={register} /> */}
 			<ConfirmButton>Login</ConfirmButton>
 		</form>
 	);

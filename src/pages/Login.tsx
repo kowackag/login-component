@@ -35,8 +35,6 @@ function Login() {
 						onSubmit={handleSubmit((data: FormDataType) => console.log(data))}
 						register={register}
 						errors={errors}
-						// handleEmail={register("email")}
-						// handlePassword={register("password")}
 					/>
 				</LoginTemplate>
 			</AuthWrapper>

@@ -1,28 +1,33 @@
-import { IFormValues } from "@/utils/shared.types";
-import { Path, UseFormRegister } from "react-hook-form";
-import { ErrorMessage } from "../atoms/Error";
+import { ErrorMessage } from "@/components/atoms/Error";
+import { FC, forwardRef, DetailedHTMLProps, InputHTMLAttributes } from "react";
 
-type FormFieldTypes = {
-	name: Path<IFormValues>;
+export type InputFieldTypes = {
+	id: string;
+	name: string;
 	label: string;
 	type?: HTMLInputElement;
-	register: UseFormRegister<Partial<IFormValues>>;
+	className?: string;
 	error: string | undefined;
-};
+} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-export const InputField = ({ name, label, type, register, error }: FormFieldTypes) => {
-	return (
-		<div className="relative py-3">
-			<label className="inline-block font-primaryMedium" htmlFor={name}>
-				{label}
-			</label>
-			<input
-				id={name}
-				type={type && "text"}
-				{...register(name)}
-				className="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
-			/>
-			{error ? <ErrorMessage message={error} /> : null}
-		</div>
-	);
-};
+export const InputField: FC<InputFieldTypes> = forwardRef<HTMLInputElement, InputFieldTypes>(
+	({ id, name, label, type = "text", error, ...props }, ref) => {
+		return (
+			<div className="relative py-3">
+				<label className="inline-block font-primaryMedium" htmlFor={name}>
+					{label}
+				</label>
+				<input
+					id={id}
+					ref={ref}
+					name={name}
+					aria-label={label}
+					type={type}
+					className="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
+					{...props}
+				/>
+				{error ? <ErrorMessage message={error} /> : null}
+			</div>
+		);
+	},
+);
