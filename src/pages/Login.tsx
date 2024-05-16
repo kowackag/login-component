@@ -1,12 +1,14 @@
-import { AuthWrapper } from "@/components/atoms/AuthWrapper";
-import { LoginTemplate } from "@/components/templates/LoginTemplate";
-import { LoginForm } from "@/components/organisms/LoginForm";
-import { FormDataType } from "@/utils/shared.types";
 import { FieldErrors, UseFormRegister, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { schema } from "@/pages/authSchema";
 
-type LoginFieldsTypes = { email: string; password: string; saved: boolean };
+import { LoginTemplate } from "@/components/templates/LoginTemplate";
+import { LoginForm } from "@/components/organisms/LoginForm";
+import { AuthWrapper } from "@/components/atoms/AuthWrapper";
+
+import { schema } from "@/pages/authSchema";
+import { FormDataType } from "@/utils/shared.types";
+
+type LoginFieldsTypes = { email: string; password: string; toSave: boolean };
 export type LoginFormType = {
 	onSubmit: React.FormEventHandler;
 	errors?: FieldErrors<LoginFieldsTypes>;
@@ -23,7 +25,7 @@ function Login() {
 		defaultValues: {
 			email: "",
 			password: "",
-			saved: false,
+			toSave: false,
 		},
 	});
 
@@ -35,8 +37,6 @@ function Login() {
 						onSubmit={handleSubmit((data: FormDataType) => console.log(data))}
 						register={register}
 						errors={errors}
-						// handleEmail={register("email")}
-						// handlePassword={register("password")}
 					/>
 				</LoginTemplate>
 			</AuthWrapper>

@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
 import { SocialIconBox } from "@/components/molecules/SocialIconBox";
+import { LineDivider } from "@/components/molecules/LineDivider";
 import { Title } from "@/components/atoms/Title";
 import { SwitchLoginSignup } from "@/components/atoms/SwitchLoginSignup";
-import { LineDivider } from "@/components/molecules/LineDivider";
 
 export const RegisterTemplate = ({ children }: { children: ReactNode }) => {
 	return (

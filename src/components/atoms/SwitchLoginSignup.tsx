@@ -10,7 +10,7 @@ export const SwitchLoginSignup = ({
 	path: string;
 }) => {
 	return (
-		<div className="mt-4 mb-0 flex justify-center font-primaryMedium">
+		<div className="mb-0 mt-4 flex justify-center font-primaryMedium">
 			<p>
 				{text}
 				<span className="ml-1">
