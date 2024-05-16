@@ -1,5 +1,5 @@
 import { UseFormRegister, Path } from "react-hook-form";
-import { Checkbox, CheckboxTypes } from "./Checkbox";
+import { Checkbox, CheckboxTypes } from "@/components/atoms/Checkbox";
 
 type FormCheckboxTypes<TFormValues> = {
 	name: Path<TFormValues>;
@@ -12,5 +12,5 @@ export const FormCheckbox = <TFormValues extends Record<string, unknown>>({
 	name,
 	...props
 }: FormCheckboxTypes<TFormValues>): JSX.Element => {
-	return <Checkbox id={id} name={name} {...props} {...(register && register(name))} />;
+	return <Checkbox id={id} name={name} {...props} {...(register ? register(name) : null)} />;
 };

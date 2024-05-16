@@ -4,7 +4,7 @@ export const LineDivider = () => {
 	return (
 		<div className="my-3 flex items-center">
 			<HorizontalLine />
-			<p className="font-primaryRegular rounded-md  border-2 border-neutral-300 px-1 py-0.5 uppercase text-neutral-400">
+			<p className="rounded-md border-2 text- text-base py-0.5 border-neutral-300 px-1 font-primaryMedium uppercase text-neutral-400">
 				or
 			</p>
 			<HorizontalLine />

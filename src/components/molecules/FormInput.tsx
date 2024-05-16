@@ -1,5 +1,5 @@
 import { UseFormRegister, Path } from "react-hook-form";
-import { InputField, InputFieldTypes } from "./InputField";
+import { InputField, InputFieldTypes } from "@/components/atoms/InputField";
 
 type FormInputTypes<TFormValues> = {
 	name: Path<TFormValues>;
@@ -14,6 +14,12 @@ export const FormInput = <TFormValues extends Record<string, unknown>>({
 	...props
 }: FormInputTypes<TFormValues>): JSX.Element => {
 	return (
-		<InputField id={id} name={name} error={error} {...props} {...(register && register(name))} />
+		<InputField
+			id={id}
+			name={name}
+			error={error}
+			{...props}
+			{...(register ? register(name) : null)}
+		/>
 	);
 };
