@@ -1,5 +1,5 @@
 import { ConfirmButton } from "@/components/atoms/ConfirmButton";
-// import { Checkbox } from "@/components/molecules/Checkbox";
+import { FormCheckbox } from "@/components/molecules/FormCheckbox";
 import { LoginFormType } from "@/pages/Login";
 import { FormInput } from "../molecules/FormInput";
 
@@ -21,7 +21,7 @@ export const LoginForm = ({ onSubmit, errors, register }: LoginFormType) => {
 				type="password"
 				error={errors?.password?.message}
 			/>
-			{/* <Checkbox name="saved" label="Remember me?" register={register} /> */}
+			<FormCheckbox id="saved" name="saved" label="Remember me?" register={register} />
 			<ConfirmButton>Login</ConfirmButton>
 		</form>
 	);
