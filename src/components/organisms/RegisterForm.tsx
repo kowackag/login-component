@@ -1,7 +1,7 @@
 import { InputField } from "@/components/molecules/InputField";
 import { ConfirmButton } from "@/components/atoms/ConfirmButton";
 
-import { RegisterFormType } from "@/pages/Register";
+import { RegisterFormType } from "@/pages/RegisterPage";
 
 export const RegisterForm = ({ onSubmit, register, errors }: RegisterFormType) => {
 	const {

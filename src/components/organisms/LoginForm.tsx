@@ -2,7 +2,7 @@ import { InputField } from "@/components/molecules/InputField";
 import { Checkbox } from "@/components/molecules/Checkbox";
 import { ConfirmButton } from "@/components/atoms/ConfirmButton";
 
-import { LoginFormType } from "@/pages/Login";
+import { LoginFormType } from "@/pages/LoginPage";
 
 export const LoginForm = ({ onSubmit, errors, register }: LoginFormType) => {
 	const {

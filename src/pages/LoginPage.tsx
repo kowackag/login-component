@@ -1,9 +1,7 @@
 import { FieldErrors, UseFormRegister, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { LoginTemplate } from "@/components/templates/LoginTemplate";
-import { LoginForm } from "@/components/organisms/LoginForm";
-import { AuthWrapper } from "@/components/atoms/AuthWrapper";
+import { LoginPageTemplate } from "@/components/templates/LoginPageTemplate";
 
 import { schema } from "@/pages/authSchema";
 import { FormDataType } from "@/utils/shared.types";
@@ -15,12 +13,17 @@ export type LoginFormType = {
 	register: UseFormRegister<LoginFieldsTypes>;
 };
 
-function Login() {
+type LoginFormDataTypes = {
+	email: string;
+	password: string;
+	toSave: boolean;
+};
+function LoginPage() {
 	const {
 		register,
 		formState: { errors },
 		handleSubmit,
-	} = useForm<Zod.output<typeof schema>>({
+	} = useForm<LoginFormDataTypes>({
 		resolver: zodResolver(schema),
 		defaultValues: {
 			email: "",
@@ -29,19 +32,11 @@ function Login() {
 		},
 	});
 
-	return (
-		<div className="flex min-h-screen w-full bg-navy-blue">
-			<AuthWrapper>
-				<LoginTemplate>
-					<LoginForm
-						onSubmit={handleSubmit((data: FormDataType) => console.log(data))}
-						register={register}
-						errors={errors}
-					/>
-				</LoginTemplate>
-			</AuthWrapper>
-		</div>
-	);
+	const onSubmit = handleSubmit((data: FormDataType) => {
+		console.log(data);
+	});
+
+	return <LoginPageTemplate onSubmit={onSubmit} register={register} errors={errors} />;
 }
 
-export default Login;
+export default LoginPage;
