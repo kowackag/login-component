@@ -1,7 +1,7 @@
 import { FieldErrors, UseFormRegister, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { RegisterTemplate } from "@/components/templates/RegisterPageTemplate";
+import { RegisterPageTemplate } from "@/components/templates/RegisterPageTemplate";
 
 import { registerShema } from "./authSchema";
 import { FormDataType } from "@/utils/shared.types";
@@ -34,7 +34,7 @@ function RegisterPage() {
 		},
 	});
 	const onSubmit = handleSubmit((data: FormDataType) => console.log(data));
-	return <RegisterTemplate onSubmit={onSubmit} register={register} errors={errors} />;
+	return <RegisterPageTemplate onSubmit={onSubmit} register={register} errors={errors} />;
 }
 
 export default RegisterPage;

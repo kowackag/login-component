@@ -9,7 +9,7 @@ import { AuthBackground } from "@/components/atoms/AuthBackground";
 
 import { RegisterFormType } from "@/pages/RegisterPage";
 
-export const RegisterTemplate = ({ onSubmit, register, errors }: RegisterFormType) => {
+export const RegisterPageTemplate = ({ onSubmit, register, errors }: RegisterFormType) => {
 	return (
 		<AuthBackground>
 			<AuthWrapper>
