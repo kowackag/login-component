@@ -1,5 +1,21 @@
-import { ErrorMessage } from "@/components/atoms/Error";
-import { CheckboxFieldTypes } from "@/utils/shared.types";
+import { ErrorMessage } from "@/components/atoms/Error/Error";
+import { ChangeEventHandler, FocusEventHandler, Ref } from "react";
+import { Path } from "react-hook-form";
+
+export interface IFormValues {
+	email: string;
+	password: number;
+	toSave: boolean;
+}
+
+export type CheckboxFieldTypes = {
+	name: Path<IFormValues>;
+	label: string;
+	onChange: ChangeEventHandler;
+	onBlur: FocusEventHandler<HTMLInputElement>;
+	inputRef: Ref<HTMLInputElement>;
+	error: string | undefined;
+};
 
 export const Checkbox = ({
 	name,

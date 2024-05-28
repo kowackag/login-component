@@ -1,7 +1,7 @@
-import { InputField } from "@/components/molecules/InputField";
-import { ConfirmButton } from "@/components/atoms/ConfirmButton";
+import { InputField } from "@/components/molecules/InputField/InputField";
+import { Button } from "@/components/atoms/Button/Button";
 
-import { RegisterFormType } from "@/pages/RegisterPage";
+import { RegisterFormType } from "@/pages/RegisterPage/RegisterPage";
 
 export const RegisterForm = ({ onSubmit, register, errors }: RegisterFormType) => {
 	const {
@@ -36,7 +36,7 @@ export const RegisterForm = ({ onSubmit, register, errors }: RegisterFormType) =
 				inputRef={passwordInputRef}
 				error={errors?.password?.message}
 			/>
-			<ConfirmButton>Sign up</ConfirmButton>
+			<Button text="Login" type="submit" />
 		</form>
 	);
 };

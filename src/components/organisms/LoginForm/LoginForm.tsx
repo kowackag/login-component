@@ -1,8 +1,8 @@
-import { InputField } from "@/components/molecules/InputField";
-import { Checkbox } from "@/components/molecules/Checkbox";
-import { ConfirmButton } from "@/components/atoms/ConfirmButton";
+import { InputField } from "@/components/molecules/InputField/InputField";
+import { Checkbox } from "@/components/molecules/Checkbox/Checkbox";
+import { Button } from "@/components/atoms/Button/Button";
 
-import { LoginFormType } from "@/pages/LoginPage";
+import { LoginFormType } from "@/pages/LoginPage/LoginPage";
 
 export const LoginForm = ({ onSubmit, errors, register }: LoginFormType) => {
 	const {
@@ -50,7 +50,7 @@ export const LoginForm = ({ onSubmit, errors, register }: LoginFormType) => {
 				inputRef={checkboxRef}
 				error={errors?.email?.message}
 			/>
-			<ConfirmButton>Login</ConfirmButton>
+			<Button text="Login" type="submit" />
 		</form>
 	);
 };

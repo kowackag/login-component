@@ -1,10 +1,9 @@
 import { FieldErrors, UseFormRegister, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { LoginPageTemplate } from "@/components/templates/LoginPageTemplate";
+import { LoginPageTemplate } from "@/components/templates/LoginPageTemplate/LoginPageTemplate";
 
 import { schema } from "@/pages/authSchema";
-import { FormDataType } from "@/utils/shared.types";
 
 type LoginFieldsTypes = { email: string; password: string; toSave: boolean };
 export type LoginFormType = {
@@ -32,7 +31,7 @@ function LoginPage() {
 		},
 	});
 
-	const onSubmit = handleSubmit((data: FormDataType) => {
+	const onSubmit = handleSubmit((data) => {
 		console.log(data);
 	});
 

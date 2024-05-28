@@ -1,10 +1,9 @@
 import { FieldErrors, UseFormRegister, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { RegisterPageTemplate } from "@/components/templates/RegisterPageTemplate";
+import { RegisterPageTemplate } from "@/components/templates/RegisterPageTemplate/RegisterPageTemplate";
 
-import { registerShema } from "./authSchema";
-import { FormDataType } from "@/utils/shared.types";
+import { registerShema } from "../authSchema";
 
 export type RegisterFieldsTypes = {
 	email: string;
@@ -33,7 +32,7 @@ function RegisterPage() {
 			password: "",
 		},
 	});
-	const onSubmit = handleSubmit((data: FormDataType) => console.log(data));
+	const onSubmit = handleSubmit((data) => console.log(data));
 	return <RegisterPageTemplate onSubmit={onSubmit} register={register} errors={errors} />;
 }
 

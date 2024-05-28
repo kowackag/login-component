@@ -1,4 +1,4 @@
-import { HorizontalLine } from "@/components/atoms/HorizontalLine";
+import { HorizontalLine } from "@/components/atoms/HorizontalLine/HorizontalLine";
 
 export const LineDivider = () => {
 	return (
