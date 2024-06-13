@@ -1,5 +1,6 @@
 import { HorizontalLine } from "@/components/atoms/HorizontalLine/HorizontalLine";
 
+
 export const LineDivider = () => {
 	return (
 		<div className="my-3 flex items-center">
