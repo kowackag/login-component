@@ -1,6 +1,6 @@
-import { Button } from "./Button";
 import { expect, it, describe } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { Button } from "./Button";
 
 describe("Button", () => {
 	it("Button displays appropriate text", () => {
@@ -16,4 +16,9 @@ describe("Button", () => {
 		const button = screen.getByRole("button");
 		expect(button).toHaveAttribute("type", "submit");
 	});
+
+	it("Button renders correctly", () => {
+		const wrapper = render(<Button text="Login" type="submit" />)
+		expect(wrapper.container).toMatchSnapshot()
+	})
 });

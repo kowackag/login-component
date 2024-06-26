@@ -1,10 +1,23 @@
-import { expect, test } from 'vitest'
+import { expect, describe, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { ErrorMessage } from './Error';
+import { ErrorMessage } from "./Error";
 
-test("Error displays appropriate message", () => {
-	render(<ErrorMessage message="some error"/>);
+describe("Error", () => {
+	it("component is visible", () => {
+		render(<ErrorMessage message="some error" />);
 
-	const message = screen.getByText("some error");
-	expect(message).toHaveTextContent("some error");
+		const element = screen.getByTestId("error");
+		expect(element).toBeVisible();
+		expect(element).exist;
+	});
+	it("Error displays appropriate message", () => {
+		render(<ErrorMessage message="some error" />);
+
+		const message = screen.getByTestId("error");
+		expect(message).toHaveTextContent("some error");
+	});
+	it("renders correctly", () => {
+		const wrapper = render(<ErrorMessage message="some error" />);
+		expect(wrapper.container).toMatchSnapshot();
+	});
 });

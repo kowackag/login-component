@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`IconLink > renders correctly 1`] = `
+<div>
+  <a
+    aria-label="facebook"
+    class="mx-2 my-2"
+    href="https://www.facebook.com/"
+    target="_blank"
+  >
+    <svg
+      height="36px"
+      width="36px"
+    >
+      <use
+        href="/facebook.svg#facebook"
+      />
+    </svg>
+  </a>
+</div>
+`;

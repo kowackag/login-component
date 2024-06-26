@@ -1,7 +1,8 @@
 import { ChangeEventHandler, FocusEventHandler, Ref } from "react";
 import { Path } from "react-hook-form";
 
-import { ErrorMessage } from "@/components/atoms/Error/Error";
+import { ErrorMessage } from "/src/components/atoms/Error/Error"
+// import { ErrorMessage } from "@/components/atoms/Error/Error";
 
 export interface IFormValues {
 	email: string;
@@ -34,6 +35,7 @@ export const InputField = ({
 				{label}
 			</label>
 			<input
+				id={name}
 				name={name}
 				type={type}
 				onChange={onChange}

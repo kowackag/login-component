@@ -12,7 +12,7 @@ export type CheckboxFieldTypes = {
 	name: Path<IFormValues>;
 	label: string;
 	onChange: ChangeEventHandler;
-	onBlur: FocusEventHandler<HTMLInputElement>;
+	onBlur?: FocusEventHandler<HTMLInputElement>;
 	inputRef: Ref<HTMLInputElement>;
 	error: string | undefined;
 };

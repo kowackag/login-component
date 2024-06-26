@@ -17,4 +17,8 @@ describe("IconLink", () => {
 		const useEl = Array.from(svgEl.children)[0];
 		expect(useEl).toHaveAttribute("href", "/linkedin.svg#linkedin");
 	});
+	it("renders correctly", () => {
+		const wrapper = render(<IconLink href="https://www.facebook.com/" name="facebook" />);
+		expect(wrapper.container).toMatchSnapshot();
+	});
 });

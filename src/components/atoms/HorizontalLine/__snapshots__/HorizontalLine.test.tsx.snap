@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Horizontal Line  > renders correctly 1`] = `
+<div>
+  <span
+    class="flex-grow border border-b border-b-gray-300"
+    data-testid="hrLine"
+  />
+</div>
+`;

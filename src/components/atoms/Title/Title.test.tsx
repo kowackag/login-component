@@ -15,4 +15,8 @@ describe("Title", () => {
 		const title = screen.getByRole("heading", { level: 4 });
 		expect(title).toBeVisible();
 	});
+	it("renders correctly", () => {
+		const wrapper = render(<Title text="Login page" level="h2" />);
+		expect(wrapper.container).toMatchSnapshot();
+	});
 });
