@@ -10,4 +10,9 @@ export default defineConfig({
 			provider: "v8", // or 'v8'
 		},
 	},
+	resolve: {
+		alias: {
+			"@": "/src",
+		},
+	},
 });

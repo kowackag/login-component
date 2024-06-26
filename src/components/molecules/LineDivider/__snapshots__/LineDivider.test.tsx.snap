@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LineDivider  > renders correctly 1`] = `
+<div>
+  <div
+    class="my-3 flex items-center"
+  >
+    <span
+      class="flex-grow border border-b border-b-gray-300"
+      data-testid="hrLine"
+    />
+    <p
+      class="rounded-md border-2  border-neutral-300 px-1 py-0.5 font-primaryRegular uppercase text-neutral-400"
+    >
+      or
+    </p>
+    <span
+      class="flex-grow border border-b border-b-gray-300"
+      data-testid="hrLine"
+    />
+  </div>
+</div>
+`;

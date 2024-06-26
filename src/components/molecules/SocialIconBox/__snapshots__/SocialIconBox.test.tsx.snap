@@ -1,0 +1,56 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SocialIconBox > renders correctly 1`] = `
+<div>
+  <div
+    class="flex justify-center"
+    data-testid="icon-box"
+  >
+    <a
+      aria-label="google"
+      class="mx-2 my-2"
+      href="https://mail.google.com/"
+      target="_blank"
+    >
+      <svg
+        height="36px"
+        width="36px"
+      >
+        <use
+          href="/google.svg#google"
+        />
+      </svg>
+    </a>
+    <a
+      aria-label="facebook"
+      class="mx-2 my-2"
+      href="https://www.facebook.com/"
+      target="_blank"
+    >
+      <svg
+        height="36px"
+        width="36px"
+      >
+        <use
+          href="/facebook.svg#facebook"
+        />
+      </svg>
+    </a>
+    <a
+      aria-label="linkedin"
+      class="mx-2 my-2"
+      href="https://www.linkedin.com/in/malgorzata-kowacka/"
+      target="_blank"
+    >
+      <svg
+        height="36px"
+        width="36px"
+      >
+        <use
+          href="/linkedin.svg#linkedin"
+        />
+      </svg>
+    </a>
+  </div>
+</div>
+`;

@@ -17,7 +17,7 @@ describe("Error", () => {
 		expect(message).toHaveTextContent("some error");
 	});
 	it("renders correctly", () => {
-		const wrapper = render(<ErrorMessage message="some error" />);
-		expect(wrapper.container).toMatchSnapshot();
+		const { container } = render(<ErrorMessage message="some error" />);
+		expect(container).toMatchSnapshot();
 	});
 });

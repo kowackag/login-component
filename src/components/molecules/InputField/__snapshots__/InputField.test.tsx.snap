@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputField > renders correctly 1`] = `
+<div>
+  <div
+    class="relative py-3"
+  >
+    <label
+      class="inline-block font-primaryMedium"
+      for="email"
+    >
+      email
+    </label>
+    <input
+      class="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
+      id="email"
+      name="email"
+      type="text"
+    />
+  </div>
+</div>
+`;
