@@ -1,0 +1,48 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RegisterForm > renders correctly 1`] = `
+<div>
+  <form
+    data-testid="register-form"
+  >
+    <div
+      class="relative py-3"
+    >
+      <label
+        class="inline-block font-primaryMedium"
+        for="email"
+      >
+        Email
+      </label>
+      <input
+        class="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
+        id="email"
+        name="email"
+        type="text"
+      />
+    </div>
+    <div
+      class="relative py-3"
+    >
+      <label
+        class="inline-block font-primaryMedium"
+        for="password"
+      >
+        Password
+      </label>
+      <input
+        class="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
+        id="password"
+        name="password"
+        type="password"
+      />
+    </div>
+    <button
+      class="my-2 w-full rounded-lg bg-bright-rose text-center font-primaryMedium text-sm uppercase leading-10 tracking-widest text-neutral-100 shadow-btn"
+      type="submit"
+    >
+      sign up
+    </button>
+  </form>
+</div>
+`;

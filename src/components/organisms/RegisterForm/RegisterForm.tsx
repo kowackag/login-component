@@ -18,7 +18,7 @@ export const RegisterForm = ({ onSubmit, register, errors }: RegisterFormType) =
 	} = register("password");
 
 	return (
-		<form onSubmit={onSubmit}>
+		<form onSubmit={onSubmit} data-testid="register-form">
 			<InputField
 				name={emailInputName}
 				label="Email"
@@ -36,7 +36,7 @@ export const RegisterForm = ({ onSubmit, register, errors }: RegisterFormType) =
 				inputRef={passwordInputRef}
 				error={errors?.password?.message}
 			/>
-			<Button text="Login" type="submit" />
+			<Button text="sign up" type="submit" />
 		</form>
 	);
 };

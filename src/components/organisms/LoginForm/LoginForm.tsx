@@ -24,7 +24,7 @@ export const LoginForm = ({ onSubmit, errors, register }: LoginFormType) => {
 		ref: checkboxRef,
 	} = register("toSave");
 	return (
-		<form onSubmit={onSubmit}>
+		<form onSubmit={onSubmit} data-testid="login-form">
 			<InputField
 				name={emailInputName}
 				label="Email"
@@ -48,7 +48,7 @@ export const LoginForm = ({ onSubmit, errors, register }: LoginFormType) => {
 				onChange={onCheckboxChange}
 				onBlur={onCheckboxBlur}
 				inputRef={checkboxRef}
-				error={errors?.email?.message}
+				error={errors?.toSave?.message}
 			/>
 			<Button text="Login" type="submit" />
 		</form>

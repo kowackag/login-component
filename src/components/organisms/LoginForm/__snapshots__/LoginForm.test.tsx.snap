@@ -1,0 +1,77 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LoginForm > renders correctly 1`] = `
+<div>
+  <form
+    data-testid="login-form"
+  >
+    <div
+      class="relative py-3"
+    >
+      <label
+        class="inline-block font-primaryMedium"
+        for="email"
+      >
+        Email
+      </label>
+      <input
+        class="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
+        id="email"
+        name="email"
+        type="text"
+      />
+    </div>
+    <div
+      class="relative py-3"
+    >
+      <label
+        class="inline-block font-primaryMedium"
+        for="password"
+      >
+        Password
+      </label>
+      <input
+        class="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
+        id="password"
+        name="password"
+        type="password"
+      />
+    </div>
+    <div
+      class="justify-beetwen mb-4 flex align-middle"
+    >
+      <input
+        class="peer fixed h-5 w-5 opacity-0"
+        data-testid="checkbox"
+        id="toSave"
+        name="toSave"
+        type="checkbox"
+      />
+      <p
+        class="mr-3 inline-block h-5 w-5 rounded-sm border border-neutral-300 p-0 leading-5 text-white peer-checked:border-none peer-checked:bg-bright-rose "
+      >
+        <svg
+          height="16px"
+          width="16px"
+        >
+          <use
+            href="/icons.svg#check"
+          />
+        </svg>
+      </p>
+      <label
+        class="font-primaryMedium leading-5"
+        for="toSave"
+      >
+        Remember me?
+      </label>
+    </div>
+    <button
+      class="my-2 w-full rounded-lg bg-bright-rose text-center font-primaryMedium text-sm uppercase leading-10 tracking-widest text-neutral-100 shadow-btn"
+      type="submit"
+    >
+      Login
+    </button>
+  </form>
+</div>
+`;
