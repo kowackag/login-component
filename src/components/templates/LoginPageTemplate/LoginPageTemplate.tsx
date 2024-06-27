@@ -8,6 +8,7 @@ import { Title } from "@/components/atoms/Title/Title";
 import { LoginFormType } from "@/pages/LoginPage/LoginPage";
 
 export const LoginPageTemplate = ({ onSubmit, errors, register }: LoginFormType) => {
+	console.log(register);
 	return (
 		<div className="flex min-h-screen w-full bg-navy-blue">
 			<section className="m-auto min-h-[556px] w-4/5 rounded-lg bg-white px-11 py-10 font-primaryRegular shadow-md-2 sm:w-96">

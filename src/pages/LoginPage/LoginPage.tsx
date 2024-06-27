@@ -35,7 +35,7 @@ function LoginPage() {
 		console.log(data);
 	});
 
-	return <LoginPageTemplate onSubmit={onSubmit} register={register} errors={errors} />;
+	return <LoginPageTemplate data-testid="login-section" onSubmit={onSubmit} register={register} errors={errors} />;
 }
 
 export default LoginPage;

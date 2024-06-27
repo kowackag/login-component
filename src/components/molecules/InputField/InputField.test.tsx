@@ -3,6 +3,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { InputField } from "./InputField";
 
 describe("InputField", () => {
+
 	it("emailInput", () => {
 		const mockFn = vi.fn();
 		const { container } = render(
@@ -37,6 +38,7 @@ describe("InputField", () => {
 		fireEvent.change(passwordInput, { target: { value: "own-password" } });
 
 		expect(passwordInput.type).toEqual("password");
+		expect(passwordInput.value).toBe("own-password");
 	});
 	it("input error is shown with correct text", () => {
 		const mockFn = vi.fn();

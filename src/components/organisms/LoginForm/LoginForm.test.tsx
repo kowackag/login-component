@@ -1,5 +1,5 @@
 import { expect, it, describe, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { LoginForm } from "./LoginForm";
 import { FieldErrors, UseFormRegister, FieldValues } from "react-hook-form";
 type LoginFieldsTypes = { email: string; password: string; toSave: boolean };
@@ -72,6 +72,10 @@ describe("LoginForm", () => {
 		const checkbox = container.querySelector("input[data-testid='checkbox']") as HTMLInputElement;
 		expect(checkbox).toBeInTheDocument();
 		expect(checkbox.checked).toBe(false);
+		expect(checkbox).toHaveAttribute("type", "checkbox");
+		fireEvent.click(checkbox);
+		expect(mockFn).toBeCalled();
+		expect(checkbox.checked).toBe(true);
 	});
 
 	it("has button type submit", async () => {

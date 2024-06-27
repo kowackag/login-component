@@ -1,0 +1,141 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RegisterPage > renders correctly 1`] = `
+<div>
+  <div
+    class="flex min-h-screen w-full bg-navy-blue"
+  >
+    <section
+      class="m-auto min-h-[556px] w-4/5 rounded-lg bg-white px-11 py-10 font-primaryRegular shadow-md-2 sm:w-96"
+    >
+      <h1
+        class="mb-4 text-lg font-bold uppercase"
+      >
+        Sign up
+      </h1>
+      <form
+        data-testid="register-form"
+      >
+        <div
+          class="relative py-3"
+        >
+          <label
+            class="inline-block font-primaryMedium"
+            for="email"
+          >
+            Email
+          </label>
+          <input
+            class="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
+            id="email"
+            name="email"
+            type="text"
+          />
+        </div>
+        <div
+          class="relative py-3"
+        >
+          <label
+            class="inline-block font-primaryMedium"
+            for="password"
+          >
+            Password
+          </label>
+          <input
+            class="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
+            id="password"
+            name="password"
+            type="password"
+          />
+        </div>
+        <button
+          class="my-2 w-full rounded-lg bg-bright-rose text-center font-primaryMedium text-sm uppercase leading-10 tracking-widest text-neutral-100 shadow-btn"
+          type="submit"
+        >
+          sign up
+        </button>
+      </form>
+      <div
+        class="my-3 flex items-center"
+      >
+        <span
+          class="flex-grow border border-b border-b-gray-300"
+          data-testid="hrLine"
+        />
+        <p
+          class="rounded-md border-2  border-neutral-300 px-1 py-0.5 font-primaryRegular uppercase text-neutral-400"
+        >
+          or
+        </p>
+        <span
+          class="flex-grow border border-b border-b-gray-300"
+          data-testid="hrLine"
+        />
+      </div>
+      <div
+        class="flex justify-center"
+        data-testid="icon-box"
+      >
+        <a
+          aria-label="google"
+          class="mx-2 my-2"
+          href="https://mail.google.com/"
+          target="_blank"
+        >
+          <svg
+            height="36px"
+            width="36px"
+          >
+            <use
+              href="/google.svg#google"
+            />
+          </svg>
+        </a>
+        <a
+          aria-label="facebook"
+          class="mx-2 my-2"
+          href="https://www.facebook.com/"
+          target="_blank"
+        >
+          <svg
+            height="36px"
+            width="36px"
+          >
+            <use
+              href="/facebook.svg#facebook"
+            />
+          </svg>
+        </a>
+        <a
+          aria-label="linkedin"
+          class="mx-2 my-2"
+          href="https://www.linkedin.com/in/malgorzata-kowacka/"
+          target="_blank"
+        >
+          <svg
+            height="36px"
+            width="36px"
+          >
+            <use
+              href="/linkedin.svg#linkedin"
+            />
+          </svg>
+        </a>
+      </div>
+      <div
+        class="mb-0 mt-4 flex justify-center font-primaryMedium"
+      >
+        <p>
+          Already a user?
+        </p>
+        <a
+          class="ml-1 uppercase underline"
+          href="/login"
+        >
+          login
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+`;

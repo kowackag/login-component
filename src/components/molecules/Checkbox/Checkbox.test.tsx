@@ -50,6 +50,7 @@ describe("Checkbox", () => {
 		const checkbox = [...container.querySelectorAll("#toSave")][0] as HTMLInputElement;
 
 		fireEvent.click(checkbox);
+		expect(mockFn).toBeCalled();
 		expect(checkbox.checked).toBe(true);
 	});
 	it("checkbox error is shown with correct text", () => {
