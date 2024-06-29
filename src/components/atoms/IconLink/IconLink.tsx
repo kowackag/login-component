@@ -11,7 +11,7 @@ export const IconLink = ({
 		linkedin: "/linkedin.svg#linkedin",
 	};
 	return (
-		<a className="mx-2 my-2" href={href} target="_blank" aria-label={name}>
+		<a className="mx-2 my-2" href={href} target="_blank" aria-label={name} data-testid="link">
 			<svg width="36px" height="36px">
 				<use href={icons[name]}></use>
 			</svg>

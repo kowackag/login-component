@@ -4,5 +4,5 @@ type TitleTypes = {
 };
 export const Title = ({ text, level }: TitleTypes) => {
 	const TitleLevel = level;
-	return <TitleLevel className="mb-4 text-lg font-bold uppercase">{text}</TitleLevel>;
+	return <TitleLevel className="mb-4 text-lg font-bold uppercase" data-testid="title">{text}</TitleLevel>;
 };

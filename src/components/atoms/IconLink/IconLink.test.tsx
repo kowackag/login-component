@@ -3,7 +3,23 @@ import { render, screen } from "@testing-library/react";
 import { IconLink } from "./IconLink.tsx";
 
 describe("IconLink", () => {
+	it("link exists with appropraite label", async () => {
+		render(<IconLink href="https://www.facebook.com/" name="facebook" />);
+
+		const link = screen. getByTestId('link');
+		expect(link).toBeInTheDocument();
+		expect(link).toBeVisible();
+		expect(link).toHaveAccessibleName('facebook')
+	});
 	it("link has appropriate attributes", async () => {
+		render(<IconLink href="https://www.facebook.com/" name="facebook" />);
+
+		const link = screen. getByTestId('link');
+		expect(link).toHaveAttribute("href", "https://www.facebook.com/");
+		expect(link).toHaveAttribute("target", "_blank");
+	});
+
+	it("link has appropriate description", async () => {
 		render(<IconLink href="https://www.facebook.com/" name="facebook" />);
 
 		const link = screen.getByLabelText("facebook");
