@@ -16,6 +16,7 @@ exports[`LoginForm > renders correctly 1`] = `
       </label>
       <input
         class="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
+        data-testid="email-input"
         id="email"
         name="email"
         type="text"
@@ -32,6 +33,7 @@ exports[`LoginForm > renders correctly 1`] = `
       </label>
       <input
         class="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
+        data-testid="password-input"
         id="password"
         name="password"
         type="password"
@@ -42,7 +44,7 @@ exports[`LoginForm > renders correctly 1`] = `
     >
       <input
         class="peer fixed h-5 w-5 opacity-0"
-        data-testid="checkbox"
+        data-testid="checkbox-toSave"
         id="toSave"
         name="toSave"
         type="checkbox"

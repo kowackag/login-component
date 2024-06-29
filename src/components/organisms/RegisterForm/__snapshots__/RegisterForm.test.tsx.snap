@@ -16,6 +16,7 @@ exports[`RegisterForm > renders correctly 1`] = `
       </label>
       <input
         class="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
+        data-testid="email-input"
         id="email"
         name="email"
         type="text"
@@ -32,6 +33,7 @@ exports[`RegisterForm > renders correctly 1`] = `
       </label>
       <input
         class="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
+        data-testid="password-input"
         id="password"
         name="password"
         type="password"

@@ -9,6 +9,7 @@ exports[`SocialIconBox > renders correctly 1`] = `
     <a
       aria-label="google"
       class="mx-2 my-2"
+      data-testid="link"
       href="https://mail.google.com/"
       target="_blank"
     >
@@ -24,6 +25,7 @@ exports[`SocialIconBox > renders correctly 1`] = `
     <a
       aria-label="facebook"
       class="mx-2 my-2"
+      data-testid="link"
       href="https://www.facebook.com/"
       target="_blank"
     >
@@ -39,6 +41,7 @@ exports[`SocialIconBox > renders correctly 1`] = `
     <a
       aria-label="linkedin"
       class="mx-2 my-2"
+      data-testid="link"
       href="https://www.linkedin.com/in/malgorzata-kowacka/"
       target="_blank"
     >

@@ -2,67 +2,73 @@ import { describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Checkbox } from "./Checkbox";
 
+const changeFn = vi.fn();
+const blurFn = vi.fn();
+const refFn = vi.fn();
+
 describe("Checkbox", () => {
-	it("component exist", () => {
-		const mockFn = vi.fn();
-		const { container } = render(
+	it("component exist with default unchecked value", () => {
+		render(
 			<Checkbox
 				name="toSave"
 				label="Save?"
 				error=""
-				onChange={mockFn}
-				onBlur={mockFn}
-				inputRef={mockFn}
+				onChange={changeFn}
+				onBlur={blurFn}
+				inputRef={refFn}
 			/>,
 		);
 
-		const checkbox = container.querySelector("#toSave") as HTMLInputElement;
+		const checkbox = screen.getByTestId("checkbox-toSave") as HTMLInputElement;
 		expect(checkbox).toBeInTheDocument();
+		expect(checkbox.checked).toBe(false);
 	});
-	it("has appropriate type", () => {
-		const mockFn = vi.fn();
-		const { container } = render(
+	it("has appropriate type, id and label", () => {
+		render(
 			<Checkbox
 				name="toSave"
 				label="Save?"
 				error=""
-				onChange={mockFn}
-				onBlur={mockFn}
-				inputRef={mockFn}
+				onChange={changeFn}
+				onBlur={blurFn}
+				inputRef={refFn}
 			/>,
 		);
+		const checkbox = screen.getByTestId("checkbox-toSave") as HTMLInputElement;
 
-		const checkbox = container.querySelector("#toSave") as HTMLInputElement;
 		expect(checkbox.type).toBe("checkbox");
+		expect(checkbox).toHaveProperty("id", "toSave");
+		expect(checkbox).toHaveAccessibleName("Save?");
 	});
-	it("changes if is selected", () => {
-		const mockFn = vi.fn();
-		const { container } = render(
+	it("changes values", () => {
+		render(
 			<Checkbox
 				name="toSave"
 				label="Save?"
 				error=""
-				onChange={mockFn}
-				onBlur={mockFn}
-				inputRef={mockFn}
+				onChange={changeFn}
+				onBlur={blurFn}
+				inputRef={refFn}
 			/>,
 		);
-		const checkbox = [...container.querySelectorAll("#toSave")][0] as HTMLInputElement;
+		const checkbox = screen.getByTestId("checkbox-toSave") as HTMLInputElement;
 
 		fireEvent.click(checkbox);
-		expect(mockFn).toBeCalled();
-		expect(checkbox.checked).toBe(true);
+		expect(changeFn).toBeCalled();
+		
+		expect(checkbox).toBeChecked();
+		fireEvent.click(checkbox);
+		expect(checkbox.checked).toBe(false);
 	});
 	it("checkbox error is shown with correct text", () => {
-		const mockFn = vi.fn();
 		render(
 			<Checkbox
 				name="toSave"
 				label="Save?"
 				error="some error"
-				onChange={mockFn}
-				onBlur={mockFn}
-				inputRef={mockFn}
+				onChange={changeFn}
+				onBlur={blurFn}
+				inputRef={refFn}
 			/>,
 		);
 		const errorEl = screen.getByTestId("error");
@@ -70,33 +76,34 @@ describe("Checkbox", () => {
 		expect(errorEl).toHaveTextContent("some error");
 	});
 	it("input error is not rendered", () => {
-		const mockFn = vi.fn();
 		const { container } = render(
 			<Checkbox
 				name="toSave"
 				label="Save?"
 				error=""
-				onChange={mockFn}
-				onBlur={mockFn}
-				inputRef={mockFn}
+				onChange={changeFn}
+				onBlur={blurFn}
+				inputRef={refFn}
 			/>,
 		);
+
 		const error = container.querySelector("[data-testid='error']") as HTMLInputElement;
 
 		expect(error).toBe(null);
+		expect(error).not.toBeInTheDocument();
 	});
 	it("renders correctly", () => {
-		const mockFn = vi.fn();
 		const wrapper = render(
 			<Checkbox
 				name="toSave"
 				label="Save?"
 				error=""
-				onChange={mockFn}
-				onBlur={mockFn}
-				inputRef={mockFn}
+				onChange={changeFn}
+				onBlur={blurFn}
+				inputRef={refFn}
 			/>,
 		);
+
 		expect(wrapper.container).toMatchSnapshot();
 	});
 });

@@ -40,6 +40,7 @@ export const InputField = ({
 				onChange={onChange}
 				onBlur={onBlur}
 				ref={inputRef}
+				data-testid={`${name}-input`}
 				className="w-full rounded-md border-2 border-neutral-300 bg-transparent px-2 leading-9 outline-none"
 			/>
 			{error ? <ErrorMessage message={error} /> : null}

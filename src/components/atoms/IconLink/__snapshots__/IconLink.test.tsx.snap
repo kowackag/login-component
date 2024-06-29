@@ -5,6 +5,7 @@ exports[`IconLink > renders correctly 1`] = `
   <a
     aria-label="facebook"
     class="mx-2 my-2"
+    data-testid="link"
     href="https://www.facebook.com/"
     target="_blank"
   >
