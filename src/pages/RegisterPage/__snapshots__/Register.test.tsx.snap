@@ -50,6 +50,7 @@ exports[`RegisterPage > renders correctly 1`] = `
         </div>
         <button
           class="my-2 w-full rounded-lg bg-bright-rose text-center font-primaryMedium text-sm uppercase leading-10 tracking-widest text-neutral-100 shadow-btn"
+          data-testid="btn-submit"
           type="submit"
         >
           sign up
@@ -128,12 +129,11 @@ exports[`RegisterPage > renders correctly 1`] = `
         <p>
           Already a user?
         </p>
-        <a
+        <button
           class="ml-1 uppercase underline"
-          href="/login"
         >
           login
-        </a>
+        </button>
       </div>
     </section>
   </div>
