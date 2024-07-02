@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { LoginPageTemplate } from "./LoginPageTemplate";
 import { UseFormRegister, FieldValues } from "react-hook-form";
 import { BrowserRouter } from "react-router-dom";
+
 type LoginFieldsTypes = { email: string; password: string; toSave: boolean };
 
 describe("LoginForm", () => {

@@ -19,7 +19,7 @@ describe("InputField", () => {
 			/>,
 		);
 
-		const emailInput = screen.getByTestId("email-input") as HTMLInputElement;
+		const emailInput = screen.getByTestId("email-input");
 		expect(emailInput).toBeInTheDocument();
 		expect(emailInput).toHaveAccessibleName("email");
 		expect(emailInput).toHaveAttribute("id", "email");

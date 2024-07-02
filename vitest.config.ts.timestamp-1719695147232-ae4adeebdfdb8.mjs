@@ -8,7 +8,7 @@ var vitest_config_default = defineConfig({
       provider: "v8"
       // or 'v8'
     },
-    exclude: ["/src"]
+    exclude: ["/src/main.tsx"]
   },
   resolve: {
     alias: {
