@@ -1,7 +1,7 @@
 import { expect, it, describe, vi } from "vitest";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { LoginPageTemplate } from "./LoginPageTemplate";
 import { UseFormRegister, FieldValues } from "react-hook-form";
+import { LoginPageTemplate } from "./LoginPageTemplate";
 
 type LoginFieldsTypes = { email: string; password: string; toSave: boolean };
 

@@ -1,7 +1,8 @@
 import { expect, it, describe, vi } from "vitest";
+import { FieldErrors, UseFormRegister, FieldValues } from "react-hook-form";
 import { render, screen } from "@testing-library/react";
 import { RegisterForm } from "./RegisterForm";
-import { FieldErrors, UseFormRegister, FieldValues } from "react-hook-form";
+
 type RegisterFieldsTypes = { email: string; password: string };
 
 const changeFn = vi.fn();

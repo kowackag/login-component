@@ -1,7 +1,7 @@
 import { expect, it, describe, vi } from "vitest";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { RegisterPageTemplate } from "./RegisterPageTemplate";
 import { UseFormRegister, FieldValues } from "react-hook-form";
+import { RegisterPageTemplate } from "./RegisterPageTemplate";
 import { RegisterFieldsTypes } from "@/pages/RegisterPage/RegisterPage";
 
 const changeFn = vi.fn();

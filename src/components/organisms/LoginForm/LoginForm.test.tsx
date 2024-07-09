@@ -1,7 +1,8 @@
 import { expect, it, describe, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { LoginForm } from "./LoginForm";
 import { FieldErrors, UseFormRegister, FieldValues } from "react-hook-form";
+import { LoginForm } from "./LoginForm";
+
 type LoginFieldsTypes = { email: string; password: string; toSave: boolean };
 
 const changeFn = vi.fn();
