@@ -1,112 +1,87 @@
 import { expect, it, describe, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { LoginPageTemplate } from "./LoginPageTemplate";
 import { UseFormRegister, FieldValues } from "react-hook-form";
-import { BrowserRouter } from "react-router-dom";
 
 type LoginFieldsTypes = { email: string; password: string; toSave: boolean };
 
-describe("LoginForm", () => {
-	it("LoginForm exists", async () => {
-		const mockFn = vi.fn();
+const changeFn = vi.fn();
+const blurFn = vi.fn();
+const refFn = vi.fn();
 
+const submitFn = vi.fn();
+
+const mockedUsedNavigate = vi.fn();
+vi.mock("react-router-dom", () => ({
+	...vi.importActual("react-router-dom"),
+	useNavigate: () => mockedUsedNavigate,
+}));
+
+describe("LoginPageTemplate", () => {
+	it("LoginPageTemplate exists", async () => {
 		const register: UseFormRegister<LoginFieldsTypes> = vi.fn((name) => {
 			return {
 				name: name as FieldValues["name"],
-				onChange: mockFn,
-				onBlur: mockFn,
-				ref: mockFn,
+				onChange: changeFn,
+				onBlur: blurFn,
+				ref: refFn,
 			};
 		});
-		render(
-			<BrowserRouter>
-				<LoginPageTemplate onSubmit={mockFn} register={register} />
-			</BrowserRouter>,
-		);
+		render(<LoginPageTemplate onSubmit={submitFn} register={register} />);
 		const form = screen.getByTestId("login-form");
 		expect(form).toBeInTheDocument();
+		const title = screen.getByRole("heading", { level: 1 });
+		expect(title).toHaveTextContent("Login");
 	});
 
-	// it("has appropriate numbers of children", async () => {
-	// 	const mockFn = vi.fn();
-	// 	const register: UseFormRegister<LoginFieldsTypes> = vi.fn((name) => {
-	// 		return {
-	// 			name: name as FieldValues["name"],
-	// 			onChange: mockFn,
-	// 			onBlur: mockFn,
-	// 			ref: mockFn,
-	// 		};
-	// 	});
-	// 	render(<LoginForm onSubmit={mockFn} register={register} />);
-	// 	const form = screen.getByTestId("login-form");
-	// 	expect(form.children.length).toBe(4);
-	// });
+	it("calls useNavigate() and navigate to register page", async () => {
+		const register: UseFormRegister<LoginFieldsTypes> = vi.fn((name) => {
+			return {
+				name: name as FieldValues["name"],
+				onChange: changeFn,
+				onBlur: blurFn,
+				ref: refFn,
+			};
+		});
+		render(<LoginPageTemplate onSubmit={submitFn} register={register} />);
+		await waitFor(() => {
+			const signUpBtn = screen.getByTestId("btn-navigate");
+			expect(signUpBtn).toHaveTextContent(/sign up/);
+			fireEvent.click(signUpBtn);
+		});
+		expect(mockedUsedNavigate).toBeCalled();
+		expect(mockedUsedNavigate.mock.lastCall[0]).toEqual("/register");
+	});
 
-	// it("shows appropriate error numbers and errors message", async () => {
-	// 	const mockFn = vi.fn();
-	// 	const register: UseFormRegister<LoginFieldsTypes> = vi.fn((name) => {
-	// 		return {
-	// 			name: name as FieldValues["name"],
-	// 			onChange: mockFn,
-	// 			onBlur: mockFn,
-	// 			ref: mockFn,
-	// 		};
-	// 	});
-	// 	const errors: FieldErrors<LoginFieldsTypes> = {
-	// 		email: {
-	// 			message: "Invalid email",
-	// 			type: "invalid form",
-	// 		},
-	// 	};
-	// 	render(<LoginForm onSubmit={mockFn} register={register} errors={errors} />);
-	// 	const errorList = screen.getAllByTestId("error");
-	// 	expect(errorList).toHaveLength(1);
-	// 	expect(errorList[0]).toHaveTextContent("Invalid email");
-	// });
-	// it("has toSave checkbox that isunchecked by default ", async () => {
-	// 	const mockFn = vi.fn();
-	// 	const register: UseFormRegister<LoginFieldsTypes> = vi.fn((name) => {
-	// 		return {
-	// 			name: name as FieldValues["name"],
-	// 			onChange: mockFn,
-	// 			onBlur: mockFn,
-	// 			ref: mockFn,
-	// 		};
-	// 	});
-	// 	const { container } = render(<LoginForm onSubmit={mockFn} register={register} />);
+	it("calls useNavigate() and navigate to restore page", async () => {
+		const register: UseFormRegister<LoginFieldsTypes> = vi.fn((name) => {
+			return {
+				name: name as FieldValues["name"],
+				onChange: changeFn,
+				onBlur: blurFn,
+				ref: refFn,
+			};
+		});
+		render(<LoginPageTemplate onSubmit={submitFn} register={register} />);
 
-	// 	const checkbox = container.querySelector("input[data-testid='checkbox']") as HTMLInputElement;
-	// 	expect(checkbox).toBeInTheDocument();
-	// 	expect(checkbox.checked).toBe(false);
-	// });
+		await waitFor(() => {
+			const signUpBtn = screen.getByTestId("btn-restore-password");
+			expect(signUpBtn).toHaveTextContent(/Forgot password/);
+			fireEvent.click(signUpBtn);
+		});
+		expect(mockedUsedNavigate.mock.lastCall[0]).toEqual("/restore");
+	});
 
-	// it("has button type submit", async () => {
-	// 	const mockFn = vi.fn();
-	// 	const register: UseFormRegister<LoginFieldsTypes> = vi.fn((name) => {
-	// 		return {
-	// 			name: name as FieldValues["name"],
-	// 			onChange: mockFn,
-	// 			onBlur: mockFn,
-	// 			ref: mockFn,
-	// 		};
-	// 	});
-	// 	render(<LoginForm onSubmit={mockFn} register={register} />);
-
-	// 	const button = screen.getByRole("button", { name: /login/i });
-	// 	expect(button).toHaveAttribute("type", "submit");
-	// });
-
-	// it("renders correctly", () => {
-	// 	const mockFn = vi.fn();
-	// 	const register: UseFormRegister<LoginFieldsTypes> = vi.fn((name) => {
-	// 		return {
-	// 			name: name as FieldValues["name"],
-	// 			onChange: mockFn,
-	// 			onBlur: mockFn,
-	// 			ref: mockFn,
-	// 		};
-	// 	});
-	// 	const { container } = render(<LoginForm onSubmit={mockFn} register={register} />);
-	// 	expect(container).toMatchSnapshot();
-	// });
+	it("renders correctly", () => {
+		const register: UseFormRegister<LoginFieldsTypes> = vi.fn((name) => {
+			return {
+				name: name as FieldValues["name"],
+				onChange: changeFn,
+				onBlur: blurFn,
+				ref: refFn,
+			};
+		});
+		const { container } = render(<LoginPageTemplate onSubmit={submitFn} register={register} />);
+		expect(container).toMatchSnapshot();
+	});
 });

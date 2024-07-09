@@ -3,6 +3,10 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import RegisterPage from "./RegisterPage";
 import { BrowserRouter } from "react-router-dom";
 
+function flushPromises() {
+	return new Promise((resolve) => setImmediate(resolve));
+}
+
 describe("RegisterPage", () => {
 	it("component exists", () => {
 		const wrapper = render(
@@ -31,7 +35,7 @@ describe("RegisterPage", () => {
 				<RegisterPage />
 			</BrowserRouter>,
 		);
-		const button = screen.getByRole("button");
+		const button = screen.getByTestId("btn-submit");
 		expect(button).toHaveTextContent("sign up");
 
 		fireEvent.click(button);
@@ -42,12 +46,12 @@ describe("RegisterPage", () => {
 		expect(errorList[1]).toHaveTextContent("Invalid password");
 	});
 	it("hides error after filling form correctly", async () => {
-		const { container } = render(
+		render(
 			<BrowserRouter>
 				<RegisterPage />
 			</BrowserRouter>,
 		);
-		const button = screen.getByRole("button");
+		const button = screen.getByTestId("btn-submit");
 		expect(button).toHaveTextContent("sign up");
 
 		fireEvent.click(button);
@@ -55,32 +59,32 @@ describe("RegisterPage", () => {
 		const errorList = await screen.findAllByTestId("error");
 		expect(errorList).toHaveLength(2);
 
-		const passwordInput = container.querySelector("#password") as HTMLInputElement;
+		const passwordInput = screen.getByLabelText("Password") as HTMLInputElement;
 
 		fireEvent.change(passwordInput, { target: { value: "own-password" } });
 		expect(passwordInput.value).toBe("own-password");
 
 		fireEvent.click(button);
+		await flushPromises();
 		const newErrorList = await screen.findAllByTestId("error");
-		// ??????
-		console.log(newErrorList);
-		expect(newErrorList).toHaveLength(2);
+		expect(newErrorList).toHaveLength(1);
 	});
 
 	it("is reset after processing form", async () => {
-		const { container } = render(
+		render(
 			<BrowserRouter>
 				<RegisterPage />
 			</BrowserRouter>,
 		);
-		const button = screen.getByRole("button");
+		const button = screen.getByTestId("btn-submit");
 		expect(button).toHaveTextContent("sign up");
 
-		const passwordInput = container.querySelector("#password") as HTMLInputElement;
+		const passwordInput = screen.getByLabelText("Password") as HTMLInputElement;
 
 		fireEvent.change(passwordInput, { target: { value: "own-password" } });
 
-		const emailInput = container.querySelector("#email") as HTMLInputElement;
+		const emailInput = screen.getByLabelText("Email") as HTMLInputElement;
+
 		fireEvent.change(emailInput, { target: { value: "someone@wp.pl" } });
 
 		expect(passwordInput.value).toBe("own-password");

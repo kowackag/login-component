@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`RegisterPage > renders correctly 1`] = `
+exports[`RegisterPageTemplate > renders correctly 1`] = `
 <div>
   <div
     class="flex min-h-screen w-full bg-navy-blue"

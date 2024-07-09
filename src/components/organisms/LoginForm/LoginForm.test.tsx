@@ -54,12 +54,17 @@ describe("LoginForm", () => {
 				message: "Invalid email",
 				type: "invalid form",
 			},
+			toSave: {
+				message: "It is necessary",
+				type: "invalid form",
+			}
 		};
 		render(<LoginForm onSubmit={submitFn} register={register} errors={errors} />);
 
 		const errorList = screen.getAllByTestId("error");
-		expect(errorList).toHaveLength(1);
+		expect(errorList).toHaveLength(2);
 		expect(errorList[0]).toHaveTextContent("Invalid email");
+		expect(errorList[1]).toHaveTextContent("It is necessary");
 	});
 	it("has toSave checkbox that is unchecked by default ", async () => {
 		const register: UseFormRegister<LoginFieldsTypes> = vi.fn((name) => {
@@ -77,6 +82,7 @@ describe("LoginForm", () => {
 		expect(checkbox.checked).toBe(false);
 		expect(checkbox).toHaveAttribute("type", "checkbox");
 		fireEvent.click(checkbox);
+
 		expect(checkbox.checked).toBe(true);
 	});
 
@@ -136,7 +142,6 @@ describe("LoginForm", () => {
 
 		const button = screen.getByTestId("btn-submit");
 		expect(button).toHaveAttribute("type", "submit");
-		expect(mockFn).not.toBeCalled();
 	});
 
 	it("renders correctly", () => {

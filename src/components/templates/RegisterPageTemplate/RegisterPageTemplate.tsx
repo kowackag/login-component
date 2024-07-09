@@ -11,8 +11,8 @@ export const RegisterPageTemplate = ({ onSubmit, register, errors }: RegisterFor
 	const navigate = useNavigate();
 
 	const handleOnClick = () => {
-		navigate('/login')
-	}
+		navigate("/login");
+	};
 	return (
 		<div className="flex min-h-screen w-full bg-navy-blue">
 			<section className="m-auto min-h-[556px] w-4/5 rounded-lg bg-white px-11 py-10 font-primaryRegular shadow-md-2 sm:w-96">
@@ -22,7 +22,11 @@ export const RegisterPageTemplate = ({ onSubmit, register, errors }: RegisterFor
 				<SocialIconBox />
 				<div className="mb-0 mt-4 flex justify-center font-primaryMedium">
 					<p>Already a user?</p>
-					<button className="ml-1 uppercase underline" onClick={handleOnClick} >
+					<button
+						data-testid="btn-navigate"
+						className="ml-1 uppercase underline"
+						onClick={handleOnClick}
+					>
 						login
 					</button>
 				</div>

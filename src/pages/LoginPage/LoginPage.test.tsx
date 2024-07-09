@@ -3,6 +3,10 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import LoginPage from "./LoginPage";
 import { BrowserRouter } from "react-router-dom";
 
+function flushPromises() {
+	return new Promise((resolve) => setImmediate(resolve));
+}
+
 describe("LoginPage", () => {
 	it("component exists", () => {
 		const wrapper = render(
@@ -22,7 +26,9 @@ describe("LoginPage", () => {
 		);
 		const form = screen.getByTestId("login-form");
 		expect(form).toBeInTheDocument();
-		const title = screen.getByRole("heading", { name: "Login" });
+		const title = screen.getByTestId("title");
+		expect(title).toHaveRole("heading");
+		expect(title).toHaveTextContent("Login");
 		expect(title).toBeInTheDocument();
 	});
 	it("renders correct errors when email/password does not meet requirements", async () => {
@@ -31,7 +37,7 @@ describe("LoginPage", () => {
 				<LoginPage />
 			</BrowserRouter>,
 		);
-		const button = screen.getByRole("button");
+		const button = screen.getByTestId("btn-submit");
 		expect(button).toHaveTextContent("Login");
 
 		fireEvent.click(button);
@@ -47,7 +53,9 @@ describe("LoginPage", () => {
 				<LoginPage />
 			</BrowserRouter>,
 		);
-		const button = screen.getByRole("button");
+		const button = screen.getByTestId("btn-submit");
+		const passwordInput = screen.getByLabelText("Password") as HTMLInputElement;
+
 		expect(button).toHaveTextContent("Login");
 
 		fireEvent.click(button);
@@ -55,18 +63,14 @@ describe("LoginPage", () => {
 		const errorList = await screen.findAllByTestId("error");
 		expect(errorList).toHaveLength(2);
 
-		const passwordInput = screen.getByLabelText("Password") as HTMLInputElement;
-
 		fireEvent.change(passwordInput, { target: { value: "own-password" } });
+
 		expect(passwordInput.value).toBe("own-password");
 
-		// fireEvent.click(button);
+		fireEvent.click(button);
+		await flushPromises();
 		const newErrorList = await screen.findAllByTestId("error");
-
-		// ??????
-
-		console.log(newErrorList);
-		expect(newErrorList).toHaveLength(2);
+		expect(newErrorList).toHaveLength(1);
 	});
 
 	it("is reset after processing form", async () => {
@@ -75,7 +79,7 @@ describe("LoginPage", () => {
 				<LoginPage />
 			</BrowserRouter>,
 		);
-		const button = screen.getByRole("button");
+		const button = screen.getByTestId("btn-submit");
 		expect(button).toHaveTextContent("Login");
 
 		const passwordInput = container.querySelector("#password") as HTMLInputElement;

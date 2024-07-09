@@ -88,12 +88,12 @@ exports[`LoginPage > renders correctly 1`] = `
           Login
         </button>
       </form>
-      <a
-        class="block text-end font-primaryRegular text-neutral-400"
-        href="/"
+      <button
+        class="w-full text-end font-primaryRegular text-neutral-400"
+        data-testid="btn-restore-password"
       >
         Forgot password?
-      </a>
+      </button>
       <div
         class="my-3 flex items-center"
       >
@@ -172,6 +172,7 @@ exports[`LoginPage > renders correctly 1`] = `
         </p>
         <button
           class="ml-1 uppercase underline"
+          data-testid="btn-navigate"
         >
           sign up
         </button>

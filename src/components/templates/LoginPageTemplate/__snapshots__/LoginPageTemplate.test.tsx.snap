@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`RegisterPage > renders correctly 1`] = `
+exports[`LoginPageTemplate > renders correctly 1`] = `
 <div>
   <div
     class="flex min-h-screen w-full bg-navy-blue"
@@ -12,10 +12,10 @@ exports[`RegisterPage > renders correctly 1`] = `
         class="mb-4 text-lg font-bold uppercase"
         data-testid="title"
       >
-        Sign up
+        Login
       </h1>
       <form
-        data-testid="register-form"
+        data-testid="login-form"
       >
         <div
           class="relative py-3"
@@ -51,14 +51,49 @@ exports[`RegisterPage > renders correctly 1`] = `
             type="password"
           />
         </div>
+        <div
+          class="justify-beetwen mb-4 flex align-middle"
+        >
+          <input
+            class="peer fixed h-5 w-5 opacity-0"
+            data-testid="checkbox-toSave"
+            id="toSave"
+            name="toSave"
+            type="checkbox"
+          />
+          <p
+            class="mr-3 inline-block h-5 w-5 rounded-sm border border-neutral-300 p-0 leading-5 text-white peer-checked:border-none peer-checked:bg-bright-rose "
+          >
+            <svg
+              height="16px"
+              width="16px"
+            >
+              <use
+                href="/icons.svg#check"
+              />
+            </svg>
+          </p>
+          <label
+            class="font-primaryMedium leading-5"
+            for="toSave"
+          >
+            Remember me?
+          </label>
+        </div>
         <button
           class="my-2 w-full rounded-lg bg-bright-rose text-center font-primaryMedium text-sm uppercase leading-10 tracking-widest text-neutral-100 shadow-btn"
           data-testid="btn-submit"
           type="submit"
         >
-          sign up
+          Login
         </button>
       </form>
+      <button
+        class="w-full text-end font-primaryRegular text-neutral-400"
+        data-testid="btn-restore-password"
+      >
+        Forgot password?
+      </button>
       <div
         class="my-3 flex items-center"
       >
@@ -133,13 +168,13 @@ exports[`RegisterPage > renders correctly 1`] = `
         class="mb-0 mt-4 flex justify-center font-primaryMedium"
       >
         <p>
-          Already a user?
+          Need an account?
         </p>
         <button
           class="ml-1 uppercase underline"
           data-testid="btn-navigate"
         >
-          login
+          sign up
         </button>
       </div>
     </section>
