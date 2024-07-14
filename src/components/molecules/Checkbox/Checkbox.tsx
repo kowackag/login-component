@@ -26,7 +26,7 @@ export const Checkbox = ({
 	error,
 }: CheckboxFieldTypes) => {
 	return (
-		<div className="justify-beetwen mb-4 flex align-middle">
+		<div className="justify-beetwen relative mb-4 flex align-middle">
 			<input
 				id={name}
 				name={name}

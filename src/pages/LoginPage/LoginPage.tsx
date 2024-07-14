@@ -5,14 +5,14 @@ import { LoginPageTemplate } from "@/components/templates/LoginPageTemplate/Logi
 
 import { schema } from "@/pages/authSchema";
 
-type LoginFieldsTypes = { email: string; password: string; toSave: boolean };
+export type LoginFieldsTypes = { email: string; password: string; toSave: boolean };
 export type LoginFormType = {
 	onSubmit: React.FormEventHandler;
 	errors?: FieldErrors<LoginFieldsTypes>;
 	register: UseFormRegister<LoginFieldsTypes>;
 };
 
-type LoginFormDataTypes = {
+export type LoginFormDataTypes = {
 	email: string;
 	password: string;
 	toSave: boolean;

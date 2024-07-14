@@ -15,7 +15,7 @@ export type RegisterFormType = {
 	register: UseFormRegister<RegisterFieldsTypes>;
 };
 
-type RegisterFormDataTypes = {
+export type RegisterFormDataTypes = {
 	email: string;
 	password: string;
 };
