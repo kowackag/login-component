@@ -1,22 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { useForm } from "react-hook-form";
 import { fn } from "@storybook/test";
 
-import { LoginForm } from "./LoginForm";
+import { LoginPageTemplate } from "./LoginPageTemplate";
 import { LoginFormDataTypes, LoginFormType } from "@/pages/LoginPage/LoginPage";
 
-const meta: Meta<typeof LoginForm> = {
-	component: LoginForm,
-	decorators: [
-		(Story) => (
-			<div style={{ width: "360px" }}>
-				<Story />
-			</div>
-		),
-	],
+const meta: Meta<typeof LoginPageTemplate> = {
+	component: LoginPageTemplate,
 	render: (args: Partial<LoginFormType>) => {
 		const { register } = useForm<LoginFormDataTypes>();
-		return <LoginForm {...args} onSubmit={onSubmit} register={register} />;
+		return <LoginPageTemplate {...args} onSubmit={onSubmit} register={register} />;
 	},
 };
 
@@ -28,7 +21,6 @@ const errors = {
 	email: { message: "it is required", type: "required" },
 	password: { message: "some error", type: "required" },
 };
-
 export const Default: Story = {
 	args: {
 		errors,
