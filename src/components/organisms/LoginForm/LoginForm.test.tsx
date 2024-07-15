@@ -1,7 +1,8 @@
 import { expect, it, describe, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { FieldErrors, UseFormRegister, FieldValues } from "react-hook-form";
+
 import { LoginForm } from "./LoginForm";
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
 type LoginFieldsTypes = { email: string; password: string; toSave: boolean };
 
@@ -112,6 +113,14 @@ describe("LoginForm", () => {
 		const button = screen.getByTestId("btn-submit");
 		fireEvent.click(button);
 
+		
+		// OK
+		expect(screen.getByTestId("login-form")).toHaveFormValues({
+			email: "email@google.com",
+			password: "some-password",
+			toSave: true,
+		});
+		
 		//   Why ???
 
 		// expect(submitFn).toBeCalledWith(

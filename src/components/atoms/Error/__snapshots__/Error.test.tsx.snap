@@ -4,7 +4,6 @@ exports[`Error > renders correctly 1`] = `
 <div>
   <p
     class="absolute right-0 font-primaryMedium text-xs italic text-red-600"
-    data-="true"
     data-testid="error"
   >
     some error

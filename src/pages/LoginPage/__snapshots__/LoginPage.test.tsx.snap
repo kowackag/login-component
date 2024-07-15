@@ -52,7 +52,7 @@ exports[`LoginPage > renders correctly 1`] = `
           />
         </div>
         <div
-          class="justify-beetwen mb-4 flex align-middle"
+          class="justify-beetwen relative mb-4 flex align-middle"
         >
           <input
             class="peer fixed h-5 w-5 opacity-0"

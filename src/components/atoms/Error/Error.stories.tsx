@@ -8,7 +8,7 @@ const meta: Meta<typeof ErrorMessage> = {
 
 export default meta;
 
-type Story = StoryObj<typeof ErrorMessage>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	args: {

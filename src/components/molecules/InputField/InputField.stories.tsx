@@ -1,6 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { InputField } from "./InputField";
+import { fn } from "@storybook/test";
+
+export const ActionsData = {
+	onArchiveTask: fn(),
+	onPinTask: fn(),
+};
+
 
 const meta: Meta<typeof InputField> = {
 	component: InputField,
