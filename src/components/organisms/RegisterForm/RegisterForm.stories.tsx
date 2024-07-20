@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useForm } from "react-hook-form";
-import { fn } from "@storybook/test";
+import { action } from "@storybook/addon-actions";
 
 import { RegisterForm } from "./RegisterForm";
-import { RegisterFormDataTypes, RegisterFormType } from "@/pages/RegisterPage/RegisterPage";
+import { RegisterFormDataTypes } from "@/pages/RegisterPage/RegisterPage";
+
+import { preventSubmitBeforeAction } from "@/utils";
 
 const meta: Meta<typeof RegisterForm> = {
 	component: RegisterForm,
@@ -14,16 +16,16 @@ const meta: Meta<typeof RegisterForm> = {
 			</div>
 		),
 	],
-	render: (args: Partial<RegisterFormType>) => {
+	render: (args) => {
 		const { register } = useForm<RegisterFormDataTypes>();
-		return <RegisterForm {...args} onSubmit={onSubmit} register={register} />;
+		return <RegisterForm {...args} register={register} />;
 	},
 };
 
 export default meta;
 
-type Story = StoryObj<RegisterFormType>;
-const onSubmit = fn();
+type Story = StoryObj<typeof meta>;
+
 const errors = {
 	email: { message: "it is required", type: "required" },
 	password: { message: "some error", type: "required" },
@@ -32,5 +34,6 @@ const errors = {
 export const Default: Story = {
 	args: {
 		errors,
+		onSubmit: preventSubmitBeforeAction(action("onSubmit")),
 	},
 };

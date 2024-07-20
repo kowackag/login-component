@@ -1,11 +1,21 @@
 import { Meta, StoryObj } from "@storybook/react";
-import  LoginPage  from "./LoginPage";
+import { reactRouterParameters } from "storybook-addon-remix-react-router";
+import LoginPage from "./LoginPage";
 
 const meta: Meta<typeof LoginPage> = {
 	component: LoginPage,
 	render: () => {
-		
-		return <LoginPage  />;
+		return <LoginPage />;
+	},
+	parameters: {
+		reactRouter: reactRouterParameters({
+			location: {
+				path: "/register",
+			},
+			routing: {
+				path: "/register",
+			},
+		}),
 	},
 };
 
